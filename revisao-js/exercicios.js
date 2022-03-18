@@ -216,4 +216,3 @@ function retornaArrayOrdenadoPorData(consultas) {
     consultas.sort(alterarDataConsulta)
     return consultas
 }
-
