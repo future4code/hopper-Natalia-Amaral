@@ -208,6 +208,7 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
       return consultas
 }
 
+
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
     function alterarDataConsulta (a, b){
