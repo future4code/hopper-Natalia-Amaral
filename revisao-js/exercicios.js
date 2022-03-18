@@ -217,3 +217,4 @@ function retornaArrayOrdenadoPorData(consultas) {
     return consultas
 }
 
+
