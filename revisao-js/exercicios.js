@@ -206,7 +206,7 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
       }
       consultas.sort(consultasNovas)
       return consultas
-    }
+}
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
