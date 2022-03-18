@@ -4,7 +4,7 @@
 
 
 // EXERCÍCIO 01
-function retornaTamanhoArray(array) {
+function retornaTamanhoArray(array) { 
     return array.length
 }
 
@@ -216,3 +216,4 @@ function retornaArrayOrdenadoPorData(consultas) {
     consultas.sort(alterarDataConsulta)
     return consultas
 }
+
