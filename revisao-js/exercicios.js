@@ -21,6 +21,7 @@ function retornaArrayOrdenado(array) {
 }
 console.log(retornaArrayOrdenado(array))
 
+
 //EXERCÍCIO 04
 let arrays = [1, 2, 3, 4, 5, 6]
 function retornaNumerosPares(array, index) {
