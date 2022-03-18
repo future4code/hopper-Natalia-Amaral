@@ -1,0 +1,23 @@
+Resolvendo e solucionando problemas.
+Esses são os sete principais passos para resolver problemas e soluconar desafios.
+
+*Passo 01*
+- Ter atenção no enunciado.
+
+ *Passo 02*
+ - Retirar informações relevantes, que podem ser usadas como nome das variáveis.
+
+ *Passo 03*
+ - Pensar na entrada e saída do código.
+
+ *Passo 04*
+ - Fazer esquemas visuais, como por exemplo criar fluxogramas.
+
+ *Passo 05*
+ - Criar código feio.
+
+ *Passo 06*
+ - Testar força-bruta.
+
+ *Passo 07*
+ - Refatorar. Ajeitando o código feio, deixando fácil de entender e legível. 
