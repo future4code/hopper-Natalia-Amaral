@@ -1,0 +1,62 @@
+#cor-red{
+    color: rgb(149, 30, 30);
+}
+#cor-mais-clara{
+    color: rgb(167, 7, 7);
+}
+.cor-cabeçalho{
+    color: rgb(78, 71, 71);
+}
+.cor-rodapé{
+    color: rgb(78, 71, 71);
+}
+.cor-azulescuro{
+    color: rgb(50, 50, 241);
+}
+footer{
+    position: relative;
+    height:100%;
+    width: 300px;
+    bottom: -700px;
+}
+button{
+    background-color: grey;
+}
+.margin-padding{
+    margin: 10px 20px 5px 10px;
+}
+.cor-vermelho{
+    color: rgb(134, 45, 45);
+}
+.cor-azul{
+    color: rgb(31, 82, 221);
+}
+.cor-diferentona{
+    color: rgb(26, 70, 136);
+}
+.fundo-cinza{
+    background-color: rgba(128, 128, 128, 0.657);
+}
+.linha-um{
+    background-color: rgb(165, 118, 118);
+}
+.linha-dois{
+    background-color: rgb(165, 118, 118);
+}
+.linha-três{
+    background-color: rgb(165, 118, 118);
+}
+.linha-quatro{
+    background-color: rgb(165, 118, 118);
+}
+.linha-cinco{
+    background-color: rgb(165, 118, 118);
+}
+
+.funcionarios-tops{
+    background-color: rgb(187, 45, 121);
+    color:rgb(0, 0, 0); ;
+}
+.cor-da-loja{
+    background-color: rgb(200, 152, 193);
+}
