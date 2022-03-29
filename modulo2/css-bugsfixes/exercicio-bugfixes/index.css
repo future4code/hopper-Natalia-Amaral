@@ -10,6 +10,7 @@
 }
 
 h2 {
+    font-family:Arial, Helvetica, sans-serif;
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
     color: white;
@@ -38,7 +39,7 @@ div img {
 }
 
 .botao-amarelo {
-    margin: 100px 100px 100px 820px;
+    margin: 100px 100px 100px 750px;
     background-color: #ffaf43;
     width: 15vw;
     height: 5vh;
@@ -46,7 +47,7 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
-    position:fixed;
+    position:absolute;
 }
 
 .botao-amarelo:hover {
@@ -54,8 +55,9 @@ div img {
 }
 
 .container {
-    height: 500px;
-    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 285px;
+    padding: 80px ;
 }
 
 .icone {
@@ -76,6 +78,7 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+   
 }
 
 #container-para-comprar {
@@ -101,7 +104,10 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 70%;
+    margin: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 td button {
@@ -115,6 +121,7 @@ td button {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+    text-align: center;
 }
 
 
