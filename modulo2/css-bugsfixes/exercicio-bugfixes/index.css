@@ -117,7 +117,7 @@ div:last-child {
 
 table {
     width: 70%;
-    margin: 550px;
+    margin: 450px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -150,7 +150,7 @@ td button:hover{
     border-radius: 5px;
     font-size: 10px;
     color: black;
-    margin: 0 0 0 950px;
+    margin: 0 0 0 880px;
 }
 
 #back-button:hover {
