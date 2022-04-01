@@ -43,38 +43,3 @@ if (pontuacaoUsuario > pontuacaoPc) {
     }
 
 console.log([pontuacaoUsuario , pontuacaoPc])  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let novaLista = []
-// let i = 0 
-// while (i < array.length) {
-//     let novoItem = "O elemento" + i.toString() + " é "
-//     novoItem += array[i].toString()
-//     novaLista.push(novoItem)
-//     i++
-// }
-
-// for (let i = 0; i < array.length; i++) {
-//     if (array.indexOf( array[ i ]) === i) {
-//         models.push(array[ i ]);
-//     }
-// }
