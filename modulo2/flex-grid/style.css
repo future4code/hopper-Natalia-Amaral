@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    padding: 0 25px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+.logo{
+    background-color: mediumvioletred;
+    display: flex;
+}
+
+#logo-box{
+    margin-left: 20px;
+}
+
+button{
+    background-color: rgb(211, 206, 206);
+    margin: 0 50px 0 0 ;
+    border: 1px solid black;
+}
+
+main{
+    background-color:white ;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0fr;
+}
+
+.bolo{
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color:white ;
+    margin-top: 10px;
+    margin-left: 0px;
+    display: inline-block;
+    grid-auto-flow: column;
+    box-shadow: 10px 10px 10px darkgray;
+}
+
+.itens{
+    background-color:#f2d0e0;
+    justify-items: start;
+    margin-right: 500px;
+
+}
+
+footer{
+    background-color: mediumvioletred;
+    align-self: end;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 0px 20px 20px;
+    position: fixed;
+}
+
+footer > p {
+    text-align: center;
+}
+
+.home{
+    margin: 0 0 0 15px;
+}
+.icone-home{
+    margin-top: 20px;
+    margin-left: 175px;
+}
+
+.produtos{
+    margin: 0 0 0 15px;
+}
+
+.icone-produtos{
+    margin-top: 30px;
+    margin-left: 135px;
+}
+
+.carrinho{
+    margin: 0 0 0 15px;
+}
+
+.icone-carrinho{
+    margin-top: 40px;
+    margin-left: 135px;
+}
+
+.perfil{
+    margin: 0 0 0 15px;
+}
+
+.icone-perfil{
+    margin-top: 50px;
+    margin-left: 165px;
+}
+
+.item-um{
+    margin-left: 15px;
+}
+
+.item-dois{
+    margin-left: 15px;
+}
+
+.item-tres{
+    margin-left: 15px;
+}
+.item-quatro{
+    margin-left: 15px;
+}
