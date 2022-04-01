@@ -1,3 +1,4 @@
+projeto-portifólio
 *{
     margin: 0;
     padding: 0;
@@ -40,6 +41,77 @@ footer{
 .conteudo-sobre{
     background-color: rgb(158, 106, 158);
     height: 100vh;
+body{
+    margin: 0;
+    padding: 0;
+    color: #27273f;
+} 
+.inicio-portifolio{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(131, 70, 90);
+    background-image: url(./img/nah.jpg) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+.social-media{
+    margin-top: 5rem;
+    display: flex;
+}
+.social-media a{
+    text-decoration: none;
+    color: #27273f;
+    padding: 1rem 4rem;
+    border: 2px solid #27273f;
+    min-width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-portifolio{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400s ease-in-out 0s;
+}
+.meus-projetos{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(143, 93, 109);
+}
+.footer{
+    text-align: center;
+    background-color: rgb(131, 70, 90);
+    position: sticky;
+    top: 0px;
+}
+.sobre-mim{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(131, 70, 90);
+    background-image: url(./img/nah.jpg) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,6 +130,18 @@ footer{
 
 .formulario{
     background-color: rgb(158, 106, 158);
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+.formulario{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(131, 70, 90);
+    background-image: url(./img/nah.jpg) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,4 +192,24 @@ button{
     width: 60px;
     height: 30px;
     border-radius: 25px ;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+.mensagem{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+    margin-bottom: -300px;
+}
+.text-duvidas{
+    position: absolute;
+    margin-top: 475px;
+    margin-bottom: auto;
 }
