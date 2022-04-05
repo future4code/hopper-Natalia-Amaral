@@ -39,11 +39,10 @@ header p{
 
 .filmes{
     display: flex;
-    max-width: fit-content;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 4px  rgb(2, 2, 2);
+    border: 4px  rgb(255, 255, 255);
     box-shadow: 4px 4px 5px  rgb(2, 2, 2);
     text-align: center;
 }
@@ -55,28 +54,26 @@ main{
     grid-template-columns: repeat(4, 1fr);
     row-gap: 70px;
     column-gap: 50px;
-    margin: 10px;
 }
 
 .filme{
     text-align: center;
     border: 2px solid black;
-    padding-bottom: 20px;
-    width: 100%;
+    padding-bottom: 25px;
+
 }
 
 .filme2{
     text-align: center;
     border: 2px solid black;
-    padding-bottom: 20px;
-    width: 70%;
+    padding-bottom: 25px;
 }
 
 .filme3{
     text-align: center;
     border: 2px solid black;
-    padding-bottom: 20px;
-    width: 100%;
+    padding-bottom: 25px;
+
 }
 
 footer{
