@@ -1,80 +1,40 @@
 /**
- * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
- * 
- * 
+* EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
+*
+*
     const carta = comprarCarta(); // Sorteia uma carta. Por exemplo, o rei de ouros
     
     console.log(carta.texto) // imprime o texto da carta. Exemplo: "K♦️" (indica "K" de ouros)
     console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
- * 
- * 
- * 
- */
+*
+*
+*
+*/
 
-console.log("Bem vinda(o) ao jogo BlackJack!!")
+console.log("Bem-vindo(a) ao jogo de blackjack")
 
-let jogo21 = confirm("Gostaria de uma nova rodada ?")
+let jogo = confirm("Quer iniciar uma nova rodada?")
 
-if (jogo21){
-      console.log("Partida iniciada!")
-}else{
-      console.log("Fim de jogo!")
-}
-console.log(jogo21)
+if (jogo) {
+    let carta1Usuario = comprarCarta()
+    let carta2Usuario = comprarCarta()
+    let carta1Pc = comprarCarta()
+    let carta2Pc = comprarCarta()
 
-let carta0Usuario = comprarCarta();
-let carta1Usuario = comprarCarta();
-let carta0Pc = comprarCarta();
-let carta1Pc = comprarCarta();
+    let pontuacaoUsuario = carta1Usuario.valor + carta2Usuario.valor
+    let pontuacaoPc = carta1Pc.valor + carta2Pc.valor
 
-let pontuacaoUsuario = carta0Usuario.valor + carta1Usuario.valor
-let pontuacaoPc = carta0Pc.valor + carta1Pc.valor
-    console.log(`Usuário - cartas: ${carta0Usuario.texto} ${carta1Usuario.texto} - ${pontuacaoUsuario}`)
-    console.log(`Computador - cartas: ${carta0Pc.texto} ${carta1Pc.texto} - ${pontuacaoPc}`)
+    console.log(`Usuário - cartas: ${carta1Usuario.texto} ${carta2Usuario.texto} - ${pontuacaoUsuario}`)
+    console.log(`Computador - cartas: ${carta1Pc.texto} ${carta2Pc.texto} - ${pontuacaoPc}`)
 
-if (pontuacaoUsuario > pontuacaoPc) {
-    console.log("Vencedor!")
-} else if (pontuacaoPc > pontuacaoUsuario) {
-    console.log("Não foi dessa vez!!")
-} else if (pontuacaoUsuario === pontuacaoPc) {
-    console.log("Empatou!!")
-} else {
-        console.log("O jogo acabou!!")
+    if (pontuacaoUsuario !== pontuacaoPc) {
+        console.log("O usuário ganhou!")
+    } else if (pontuacaoPc > pontuacaoUsuario) {
+        console.log("O computador ganhou!")
+    } else if (pontuacaoUsuario === pontuacaoPc) {
+        console.log("Empate!")
     }
 
-console.log([pontuacaoUsuario , pontuacaoPc])  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let novaLista = []
-// let i = 0 
-// while (i < array.length) {
-//     let novoItem = "O elemento" + i.toString() + " é "
-//     novoItem += array[i].toString()
-//     novaLista.push(novoItem)
-//     i++
-// }
-
-// for (let i = 0; i < array.length; i++) {
-//     if (array.indexOf( array[ i ]) === i) {
-//         models.push(array[ i ]);
-//     }
-// }
+} else {
+    console.log("O jogo acabou")
+}
