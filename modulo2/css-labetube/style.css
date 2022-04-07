@@ -44,6 +44,10 @@ main{
     column-gap: 50px;
 }
 
+.titulo-filme{
+    text-align: center;
+}
+
 .filme{
     text-align: center;
     border: 2px solid black;
@@ -71,7 +75,7 @@ footer{
         margin: 0 auto;
      }
 
-     .filme video {
+    .filme video {
         width: 100%;
      }
 }
