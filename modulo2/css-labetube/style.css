@@ -15,17 +15,6 @@ header{
 
 }
 
-.header{
-    height: 10vh;
-    font-size: 4vh;
-    border-bottom: 3px solid rgb(2, 2, 2);
-    text-align: end;
-    position:sticky;
-    background-color:rgb(245, 60, 60);
-    width:100%;
-}
-
-
 header p{
     text-align: center;
     position: relative;
@@ -62,19 +51,6 @@ main{
 
 }
 
-.filme2{
-    text-align: center;
-    border: 2px solid black;
-    padding-bottom: 25px;
-}
-
-.filme3{
-    text-align: center;
-    border: 2px solid black;
-    padding-bottom: 25px;
-
-}
-
 footer{
     background-color:rgb(245, 60, 60);
     width:100%;
@@ -85,3 +61,17 @@ footer{
     border-top: 3px solid rgb(2, 2, 2);
 }
 
+@media screen and (max-device-width: 750px){
+    header, main, footer{
+        display: block;
+    }
+
+    .filme {
+        max-width: 800px;
+        margin: 0 auto;
+     }
+
+     .filme video {
+        width: 100%;
+     }
+}
