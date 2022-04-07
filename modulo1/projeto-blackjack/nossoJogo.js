@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
 *
@@ -38,3 +39,6 @@ if (jogo) {
 } else {
     console.log("O jogo acabou")
 }
+=======
+
+>>>>>>> 3e00b0b8a36f594eff90bf04ea2107085ce4b2cd
