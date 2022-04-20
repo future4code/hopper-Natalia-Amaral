@@ -15,6 +15,7 @@ header{
 
 }
 
+<<<<<<< HEAD
 .header{
     height: 10vh;
     font-size: 4vh;
@@ -26,6 +27,8 @@ header{
 }
 
 
+=======
+>>>>>>> cea77818f69e7ec22bc4c284a7795f581dbf770f
 header p{
     text-align: center;
     position: relative;
@@ -55,6 +58,13 @@ main{
     column-gap: 50px;
 }
 
+<<<<<<< HEAD
+=======
+.titulo-filme{
+    text-align: center;
+}
+
+>>>>>>> cea77818f69e7ec22bc4c284a7795f581dbf770f
 .filme{
     text-align: center;
     border: 2px solid black;
@@ -62,6 +72,7 @@ main{
 
 }
 
+<<<<<<< HEAD
 .filme2{
     text-align: center;
     border: 2px solid black;
@@ -75,6 +86,8 @@ main{
 
 }
 
+=======
+>>>>>>> cea77818f69e7ec22bc4c284a7795f581dbf770f
 footer{
     background-color:rgb(245, 60, 60);
     width:100%;
@@ -85,3 +98,20 @@ footer{
     border-top: 3px solid rgb(2, 2, 2);
 }
 
+<<<<<<< HEAD
+=======
+@media screen and (max-device-width: 750px){
+    header, main, footer{
+        display: block;
+    }
+
+    .filme {
+        max-width: 800px;
+        margin: 0 auto;
+     }
+
+    .filme video {
+        width: 100%;
+     }
+}
+>>>>>>> cea77818f69e7ec22bc4c284a7795f581dbf770f
