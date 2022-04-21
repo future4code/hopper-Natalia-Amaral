@@ -30,3 +30,11 @@ let b = 25
 // a = c 
 // b = a 
 // c = b
+
+
+
+function retornaBooleano (){
+    let arara = true;
+    let banana = false;
+    let anna = true;    
+}
