@@ -1,111 +1,278 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
+/* ======================//  Header  //====================== */
 
 body{
-    height: 100%;
+    background-color: rgb(245, 245, 230);
 }
 
-.menu{
-    background-color: rgb(165, 134, 145);
-    display: flex;
-    justify-content: end;
-    padding: 15px 75px 13px;
-    height: 90px;
+header > nav{
+   padding-top: 35px;
 }
 
-ul {
-    
-    list-style: none;
-}
-
-.conteudo{
-    background-color: rgb(158, 106, 158);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 112px;
-}
-
-footer{
+h2{
     text-align: center;
-    background-color: rgb(165, 134, 145);
-    top: 0px;
+    padding-top: 14px;
+    background-color: rosybrown;
+    color: white;
+    height: 7vh;
 }
 
-.conteudo-sobre{
-    background-color: rgb(158, 106, 158);
-    height: 100vh;
+/* ======================// Menu  //====================== */
+
+.c-nav-menu > ul{
+    border-bottom-style: double;
+    border-bottom-color: rgb(187, 114, 114);
+    font-size: larger;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 112px;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
 }
 
-.conteudo-projetos{
-    background-color: rgb(158, 106, 158);
+.c-nav-menu > ul > li > a{
+    text-decoration: none;
+    cursor: pointer;
+    color:rgb(190, 117, 117) ;
+}
+
+/* ======================//  Informações  //====================== */
+
+section{
+    margin-top: 95px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 112px;
+    text-align: center;
 }
+
+section > p{
+    padding-top: 75px;
+    color: rgb(190, 117, 117);
+}
+
+div > .img-contato{
+    padding-left: 795px;
+    margin-top: 115px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* ======================//  Meus contatos  //====================== */
 
 .formulario{
-    background-color: rgb(158, 106, 158);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 112px;
-}
-
-.mensagem{
-    margin-bottom: 50px;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
-    padding: 0 112px;
-}
-
-.text-duvidas{
-    margin-top: 100px;
-    margin-bottom: auto;
-}
-
-.social-media{
-    margin-top: 5rem;
-    display: flex;
-}
-
-.social-media a{
-    font-weight : bold;
-    text-decoration: none;
-    color: #27273f;
-    padding: 1rem 4rem;
-    border: 2px solid #27273f;
-    display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+.formulario > .duvida{
+    text-decoration: none;
+    color: rgb(190, 117, 117); 
+    
+}
+
+.formulario > form{
+    text-align: center;
+    padding-top: 30px;
+    margin-right: 50px;
+}
+
+label {
+    color: rgb(190, 117, 117); 
 }
 
 input{
-    width: 300px;
-}
-
-.input_mensagem{
-    height: 100px;
+    font-size: 15px;
+    text-decoration: none;
+    background-color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-style:double;
+    padding: 8px 0px;
 }
 
 button{
-    width: 70px;
-    height: 35px;
-    border-radius: 25px ;
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 15px;
+    color:white;
+    background-color:rosybrown;
+    border-radius: 10px;
+    border-style:double;
+
+}
+
+.h3 > p{
+    text-align: center;
+    color: rgb(190, 117, 117);
+    padding-top: 137.05px;
+}
+
+h3{
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    color: rgb(190, 117, 117);
+}
+
+.media-icons{  
+  display: flex;  
+  justify-items: center;
+  padding-left: 850px;
+   
+}  
+
+.media-icons a{ 
+  padding-top: 40px;
+  height: 0px;  
+  width: 40px;  
+  margin: 0px 7px;
+  border-radius: 50%;  
+  align-items: center; 
+  line-height: 40px;  
+  color: rgb(190, 117, 117);  
+  font-size: 20px;  
+  text-decoration: none;  
+  transition: all 0.4s ease;    
+}
+
+/* ======================//  Sobre Mim //====================== */
+
+.section{
+    height: 55vh;
+}
+h4{
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: rgb(190, 117, 117); 
+    padding-top: 15px ;
+}
+
+.escolaridade{
+    padding-top: 70px;
+}
+
+.escolaridade > li{
+    color: rgb(190, 117, 117); 
+    padding-top: 30px ;
+    
+
+}
+
+.escolaridade p{
+    color: rgb(190, 117, 117); 
+}
+
+/* ======================//  Projetos  //====================== */
+.texto{
+   height: 50vh;
+}
+
+.texto > img{
+    margin-left: 750px;
+    margin-top: 15px;
+}
+
+.texto > h3{
+    text-align: center;
+    padding-top: 60px;
+    color: rgb(190, 117, 117);
+}
+
+.texto > p{
+    text-align: center;
+    color: rgb(190, 117, 117);
+    padding-top: 10px;
+}
+
+.projeto{
+    text-align: center;
+    padding-top: 100px; 
+    margin: 0px 7px; 
+    line-height: 40px;  
+    color: rgb(190, 117, 117);  
+    text-decoration: none;  
+}
+
+.projeto > a {
+    line-height: 40px;
+    margin: 0px 7px;
+    color: rgb(190, 117, 117);  
+    text-decoration: none;  
+}
+
+
+/* ======================//  Footer  //====================== */
+
+.rodapé{
+    height: 50px;
+    width: 55%;
+    background-color: rosybrown;
+    color: white;
+    position: absolute;
+    margin-top: 67px;
+    margin-bottom: 0px;
+    padding-left: 870px;
+    padding-top: 20px ;
+}
+
+
+
+@media screen and (max-device-width :700px) {
+    body{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        background-repeat: no-repeat;
+        }
+    header{
+        position: fixed;
+        width: 35%;
+        }
+    header > nav{
+        position: fixed;
+        width: 35%;
+        top: 50px;
+    }
+    .rodapé{
+        width: 35%;
+        display: block;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+        background-repeat: no-repeat;
+    }
+    .media-icons > a, .media-icons{
+        position: sticky;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;  
+        height: 25px; 
+        width:35%;  
+        line-height: 35px;  
+        padding: 30px 30px;
+    }
+
+    h4{
+        text-transform: uppercase;
+        text-decoration: underline;
+        color: rgb(190, 117, 117); 
+        padding-top: 40px ;
+    }
+
+    .escolaridade{
+        padding-top: 55px;
+    }
+
+    .texto{
+        height: 50vh;
+     }
+
+     .texto > h3{
+        text-align: center;
+        padding-top: 150px;
+        color: rgb(190, 117, 117);
+    }
 }
