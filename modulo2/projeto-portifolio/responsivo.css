@@ -1,0 +1,170 @@
+/* ======================//  Media Query  //====================== */
+
+@media screen and (max-device-width:700px) {
+    body{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        background-repeat: no-repeat;
+        }
+        
+    header{
+        position: sticky;
+        width: 100%;
+        }
+        
+    header > nav{
+        display: block;
+        
+    }
+    .rodapé{
+        padding: 0 105px;
+        width: 70%;
+        display: block;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+        background-repeat: no-repeat;
+    }
+    .media-icons > a, .media-icons{
+        position: sticky;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;  
+        height: 25px; 
+        width:35%;  
+        line-height: 35px;  
+        padding: 15px 15px;
+    }
+
+    h4{
+        text-transform: uppercase;
+        text-decoration: underline;
+        color: rgb(190, 117, 117); 
+        padding-top: 40px ;
+    }
+
+    .escolaridade{
+        padding-top: 55px;
+    }
+
+    .texto{
+        height: 50vh;
+     }
+
+     .texto > h3{
+        text-align: center;;
+        color: rgb(190, 117, 117);
+    }
+
+    .texto > img{
+        width: 250px;
+        margin-left: 85px;
+        margin-top: 30px;
+    }
+
+  
+    .formulario{
+        display: block;
+     }
+
+    label{
+        display: block;
+        text-align: left;
+    }
+
+    input{
+        display: block;
+
+    }
+
+    button{
+        display: block;
+
+    }
+}
+
+
+/* ======================//  Media Query  //====================== */
+
+@media screen and (min-device-width: 400px) {
+    body{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        background-repeat: no-repeat;
+        }
+        
+    header{
+        position: sticky;
+        width: 100%;
+        }
+        
+    header > nav{
+        display: block;
+        
+    }
+    .rodapé{
+        padding: 0 105px;
+        width: 70%;
+        display: block;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+        background-repeat: no-repeat;
+    }
+    .media-icons > a, .media-icons{
+        position: sticky;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;  
+        height: 25px; 
+        width:35%;  
+        line-height: 35px;  
+        padding: 15px 15px;
+    }
+
+    h4{
+        text-transform: uppercase;
+        text-decoration: underline;
+        color: rgb(190, 117, 117); 
+        padding-top: 40px ;
+    }
+
+    .escolaridade{
+        padding-top: 55px;
+    }
+
+     .texto > h3{
+        padding-top: 45px;
+        text-align: center;;
+        color: rgb(190, 117, 117);
+    }
+
+    .texto > img{
+        width: 250px;
+        margin-top: 150px;
+    }
+    .texto{
+        height: 75vh;
+    }
+
+    .formulario{
+        display: block;
+     }
+
+    label{
+        display: block;
+        text-align: left;
+    }
+
+    input{
+        display: block;
+
+    }
+
+    button{
+        display: block;
+
+    }
+}
