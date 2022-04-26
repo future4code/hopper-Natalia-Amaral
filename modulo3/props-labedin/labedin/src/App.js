@@ -3,6 +3,7 @@ import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
+import styled from 'styled-components';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem="./img/Natália.png" 
+          imagem="./components/img/Natália.png" 
           nome="Natália Amaral" 
           descricao="Olá, bem vindes! Meu nome é Natália, tenho 26 anos. Nascida e criada na cidade de Matão, no interior de São Paulo.
           Sou a mais velha dentre três irmão. Sou casada e mãe de dois pets, Nami e Jhin.
