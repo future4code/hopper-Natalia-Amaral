@@ -4,6 +4,7 @@ import CardGrande from './components/CardGrande/CardGrande';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 
+
 function App() {
   return (
     <div className="App">
@@ -21,22 +22,24 @@ function App() {
           texto="Ver mais"
         />
       </div>
+
       <div>
-        <h4>Email:</h4>
-      <CardPequeno
-      email="nataliaheloisa95@gmail.com"
-      />
-      </div>
-      <div>
-        <h4>Endereço:</h4>
         <CardPequeno
-        endereco="Rua José Labenu S/N Matão-SP"
+         nome="Email:"
+         informacoesEmail="nataliaheloisa95@gmail.com"
         />
       </div>
+
+      <div>
+        <CardPequeno
+         nome="Endereço:"
+         informacoesEndereco="José Labenu, 500 - Matão-SP"/>
+      </div>
+
       <div className="page-section-container">
         <h2>Experiências profissionais</h2>
         <CardGrande 
-          imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
+          imagem="./." 
           nome="DSC Odonto" 
           descricao="Trabalhava para dois irmãos dentistas. Atuava organizando as agendas, atendendo telefones, mantendo a ordem dos materiais
           odontológicos, emitindo notas fiscais e auxiliando em cirurgias." 

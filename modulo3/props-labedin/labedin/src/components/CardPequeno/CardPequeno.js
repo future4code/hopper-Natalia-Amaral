@@ -1,13 +1,13 @@
 import React from 'react';
-import './CardPequeno'
+import './CardPequeno.css';
 
-function CardPequeno(props) {
+function CardPequeno (props) {
+
     return (
-        <div className="card-container">
-            <div>
-                <h3><p>{props.email}</p></h3>
-                <p>{ props.endereco }</p>
-            </div>
+        <div>
+            <p><strong>{props.nome}</strong></p>
+            <span> {props.informacoesEmail} </span>
+            <span> {props.informacoesEndereco} </span>
         </div>
     )
 }
