@@ -1,37 +1,45 @@
 import React from 'react';
-import '../components/Mensagem'
+import '../components/Mensagem';
 
 export class Mensagem extends React.Component{
+
     state = {
-        nomeRemetente: '',
-        conteudo: ''
+        mensagens:this.props.array,
+        inputUsuario: '',
+        inputMensagem: ''
     }
 
-    onChangeNome = (event) => {
-        this.setState({nomeRemetente: event.target.value})
+    onChangeUsuario = (event) => {
+        this.setState({ inputUsuario: event.target.value })
     }
 
-    onChangeConteudo = (event) => {
-        this.setState({conteudo: event.target.value})
+    onChangeMensagem = (event) => {
+        this.setState({ inputMensagem: event.target.value })
     }
 
-    render(){
+    enviaMensagem=() => {
+        const novoArray = this.state.mensagens
+        novoArray.push(
+            {usuario:this.state.inputUsuario, mensagem:this.state.inputMensagem}
+        )
+        this.setState({
+            mensagens:novoArray,
+            inputMensagem:''
+        })
+        this.props.updateState(this.state.mensagens)
+    }
+
+
+    render() {
         return (
             <div>
-                <input 
-                        value={this.state.nomeRemetente}
-                        onChange={this.onChangeNome}
-                    />
-                    <input 
-                        type="text"
-                        placeholder="Mensagem"
-                        name={this.props.conteudo}
-                        value={this.state.conteudo}
-                        onChange={this.onChangeConteudo}
-                    />
-                    <button onClick={this.onClickEnviar}>Enter</button>
+                <input placeholder='Contato' value={this.state.inputUsuario} onChange={this.onChangeUsuario} />
+                <input placeholder='Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem }/>
+                <button onClick={this.enviaMensagem}>Enter</button>
             </div>
-
-        );
+        )
     }
 }
+
+
+export default Mensagem;
