@@ -10,13 +10,13 @@ class App extends React.Component {
           <h3>Filtros</h3>
 
           <label>Valor mínimo:</label>
-          <input type="number"/>
+          <input type="number" placeholder='0'/>
 
           <label>Valor máximo:</label>
-          <input type="number"/>
+          <input type="number" placeholder='0'/>
 
           <label>Procure pelo nome:</label>
-          <input type="text"/>
+          <input type="text" placeholder='Pesquisar'/>
         </div>
         
         <div>
