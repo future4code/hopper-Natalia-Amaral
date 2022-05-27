@@ -100,7 +100,7 @@ font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 const InputMusic = styled.input`
 background: transparent;
 border: none;
-border-bottom: 1px solid gray;
+border-bottom: 2px solid gray;
 margin-bottom: 15px;
 width: 50%;
 height: 35px;
@@ -113,7 +113,7 @@ border-bottom: 2px solid gray;
 const ButtonMusic = styled.button`
 border: 2px solid gray;;
 background-image: linear-gradient(to left, red, red, red);
-width: 50%;
+width: 100%;
 height: 35px;
 border-radius: 20px;
 color: black;
@@ -138,7 +138,7 @@ align-items: center;
 font-size: 25px;
 flex-direction: column;
 border-radius: 20px;
-border: 1px solid gray;
+border: 2px solid gray;
 height: 60px;
 background-image: linear-gradient(to left, red, red, red);
 color: black;
@@ -181,63 +181,58 @@ class DetalhePlaylist extends React.Component {
     };
 
     adicionaMusica = () => {
-        const body = {
-            name: this.state.name,
-            artist: this.state.artist,
-            url: this.state.url
-        }
+      const body = {
+        name: this.state.name,
+        artist: this.state.artist,
+        url: this.state.url,
+      };
+  
+      axios
+        .post(
+          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.playSelect.id}/tracks`,
+          body,
+          headers
+        )
+        .then((resposta) => {
+          console.log(resposta);
+          Swal.fire("", "Música adicionada com sucesso!!!", "success");
+          this.setState({ name: "", artist: "", url: "" });
+          this.pegarMusicaPlaylist();
+        })
+        .catch((erros) => {
+          Swal.fire("", "Ops! Algo deu Errado!!", "error");
+          console.log(erros);
+        });
     };
-
-     musicaAdicionada = (id) => {
-        if (window.confirm("Música Adicionada")) {
-          axios
-            .post(
-              `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks${id}`,
-              headers
-            )
-            .then((respostas) => {
-              console.log(respostas);
-              Swal.fire("", "Música adicionada com sucesso!", "success");
-              this.setState({ name: "", artist: "", url: "" });
-              this.pegarMusicaPlaylist();
-            })
-            .catch((erros) => {
-            Swal.fire("", "Algo deu Errado :(", "error");
-            console.log(erros);
-            });
-        }
-      };
-
-      onchangeNome = (event) => {
-        this.setState({ name: event.target.value });
-      };
-
-      onchangeArtista = (event) => {
-        this.setState({ artist: event.target.value });
-      };
-    
-      onchangeLink = (event) => {
-        this.setState({ url: event.target.value });
-      };
-    
-      pegarMusicaPlaylist = () => {
-        axios
-          .get(
-            `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists${this.props.playSelect.id}/tracks`,
-            headers
-          )
-          .then((response) => {
-            this.setState({ listaMusicas: response.data.result.tracks });
-            console.log("Atenção", response.data.result.tracks);
-          })
-          .catch((err) => {
-              console.log(err)
-            });
-      };
-    
-      componentDidMount() {
-        this.pegarMusicaPlaylist();
-      }
+  
+    onchangeNome = (event) => {
+      this.setState({ name: event.target.value });
+    };
+  
+    onchangeArtista = (event) => {
+      this.setState({ artist: event.target.value });
+    };
+  
+    onchangeLink = (event) => {
+      this.setState({ url: event.target.value });
+    };
+  
+    pegarMusicaPlaylist = () => {
+      axios
+        .get(
+          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.playSelect.id}/tracks`,
+          headers
+        )
+        .then((respostas) => {
+          this.setState({ listaMusicas: respostas.data.result.tracks });
+          console.log("Atenção", respostas.data.result.tracks);
+        })
+        .catch((erros) => console.log(erros));
+    };
+  
+    componentDidMount() {
+      this.pegarMusicaPlaylist();
+    }
 
 
 render() {
@@ -282,14 +277,14 @@ render() {
         />
 
         <div>
-              <ButtonMusic onClick={this.adicionaMusica}>
-                Adicionar Música
-              </ButtonMusic>
+          <ButtonMusic onClick={this.adicionaMusica}>
+             Adicionar Música
+          </ButtonMusic>
 
           {retornaMusica}
 
           <ButtonPlaylist onClick={this.props.renderizaPaginaVoltar}>
-           Voltar para Biblioteca
+           Ir para Biblioteca
           </ButtonPlaylist>
         </div>
       </MainPrincipal>

@@ -42,9 +42,9 @@ const MainPrincipal = styled.div`
   align-items: center;
   flex-direction: column;
   background-position: center;
+  background-size: cover;
   font-size: 50px;
   text-shadow: red;
-  position: relative;
   display: flex;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   position: relative;
@@ -169,23 +169,24 @@ class ListaPlaylist extends React.Component {
       }
 
       deletarUsuario = (id) => {
-        if (window.confirm("Deseja deletar a Playlist?")) {
+        if (window.confirm("Deseja deletar essa Playlist?")) {
           axios
             .delete(
-              `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId${id}`,
+              `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`,
               headers
             )
-            .then((response) => {
-              console.log(response);
-                Swal.fire("", "Playlist apagada com sucesso!", "success");
-                this.pegarPlay();
+            .then((respostas) => {
+              console.log(respostas);
+              Swal.fire("", "A Playlist foi apagada com sucesso!", "success");
+              this.pegarPlay();
             })
-            .catch((err) => {
-              Swal.fire("", "Algo deu Errado!!", "err");
-              console.log(err);
+            .catch((erros) => {
+              Swal.fire("", "Ops! Algo deu Errado :(", "error");
+              console.log(erros);
             });
         }
       };
+      
       renderizaPaginaDetalhe = (selectplaylist) => {
         this.setState({ paginaDetalhe: true, playSelect: selectplaylist });
       };
@@ -231,18 +232,18 @@ class ListaPlaylist extends React.Component {
             </CabecalhoPrincipal >
     
             <MainPrincipal>
-              <h3>Lista de Playlist</h3>
+              <h3>Playlists</h3>
               {retornaLista}
     
               <div>
                 <ButtonPlaylist onClick={this.props.irParaCadastro}>
-                  Voltar para Playlist
+                  Voltar para ínicio
                 </ButtonPlaylist>
               </div>
             </MainPrincipal>
     
             <FooterList>
-            &copy; 2022 All rights reserved.
+                &copy; 2022 All rights reserved.
                 <p>Projeto Desenvolvido por Natália Amaral ♥</p>
             </FooterList>
           </div>

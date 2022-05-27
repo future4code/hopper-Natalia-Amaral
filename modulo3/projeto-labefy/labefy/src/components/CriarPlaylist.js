@@ -30,6 +30,7 @@ const MainPrincipal = styled.div`
   height: 76vh;
   width: 100vw;
   display: flex;
+  text-align: center;
   align-items: center;
   flex-direction: column;
   background-size: cover;
@@ -187,7 +188,7 @@ class CriarPlaylist extends React.Component {
 
                 <MainPrincipal>
                   <div>
-                    <h3>Criar Playlist</h3>
+                    <h3>Criar Nova Playlist</h3>
                     <Input
                       placeholder={"Nome"}
                       value={this.state.nomeDaPlaylist}
