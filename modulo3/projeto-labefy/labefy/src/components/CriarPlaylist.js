@@ -1,11 +1,16 @@
 import React from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import styled from "styled-components";
 
 const Imagem = styled.img`
 height: 12vh;
 margin-right:20px;
 margin-left:  30px;
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  height: 8vh;
+}
 `;
 
 const Cabecalho = styled.div`
@@ -136,8 +141,8 @@ const FooterList = styled.footer`
   }
 `;
 
-const heardes ={
-    heardes:{
+const headers ={
+    headers:{
         Authorization: "Natália-Amaral-Hopper",
     },
 };
@@ -151,24 +156,23 @@ class CriarPlaylist extends React.Component {
       };
 
 
-    CriarPlaylist = () => {
+    criarPlaylist = () => {
       const body = {
           name: this.state.nomeDaPlaylist,
       };
 
       axios.post(
-          "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists" ,
+          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists` ,
           body ,
-          heardes
+          headers
       )
-
       .then((response) => {
-        console.log(response);
+        console.log(response.data.result);
         this.setState({ nomeDaPlaylist: "" });
-        alert.fire("", "Playlist criada com sucesso!", "success");
+        Swal.fire("", "Playlist criada com sucesso!", "success");
       })
       .catch((err) => {
-        alert.fire("", "Algo deu errado!", "error");
+        Swal.fire("", "Algo deu errado!", "error");
         console.log(err);
       });
   };
@@ -182,22 +186,25 @@ class CriarPlaylist extends React.Component {
                 </Cabecalho>
 
                 <MainPrincipal>
-                <h3>Criar Playlist</h3>
-                <Input
-                placeholder={"Nome"}
-                value={this.state.nomeDaPlaylist}
-                onChange={this.criaPlaylist}
-                />
+                  <div>
+                    <h3>Criar Playlist</h3>
+                    <Input
+                      placeholder={"Nome"}
+                      value={this.state.nomeDaPlaylist}
+                       onChange={this.criaPlaylist}
+                    />
                 <Button onClick={this.criarPlaylist}>
                   Criar Playlist
                 </Button>
+
                 <ButtonPlaylist onClick={this.props.irParaLista}>
                   Sua Biblioteca
                 </ButtonPlaylist>
+                  </div>
                 </MainPrincipal>
                 <FooterList>
                 &copy; 2022 All rights reserved.
-                <p>Projeto Desenvolvido pela estudante Natália Amaral ♥</p>
+                <p>Projeto Desenvolvido por Natália Amaral ♥</p>
                 </FooterList>
             </div>
         )

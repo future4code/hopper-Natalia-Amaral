@@ -1,6 +1,5 @@
 import React from 'react';
 import CriarPlaylist from './components/CriarPlaylist';
-import DetalhePlaylist from './components/DetalhePlaylist';
 import ListaPlaylist from './components/ListaPlaylist';
 
 class App extends React.Component {
