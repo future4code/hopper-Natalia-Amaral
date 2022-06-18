@@ -1,4 +1,4 @@
-function CreateTripPage(){
+const CreateTripPage = () => {
 
     return(
         <h2>Criar viagem</h2>

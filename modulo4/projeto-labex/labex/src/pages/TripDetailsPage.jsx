@@ -1,4 +1,4 @@
-function TripDetailsPage(){
+const TripDetailsPage = () => {
 
     return(
         <h2>Detalhes de viagem</h2>

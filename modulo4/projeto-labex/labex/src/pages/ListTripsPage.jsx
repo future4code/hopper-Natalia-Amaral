@@ -102,7 +102,7 @@ transition: 0.5s all ease;
 }
 `;
 
-function ListTripsPage(){
+const ListTripsPage = () => {
     const navigate = useNavigate();
 
 

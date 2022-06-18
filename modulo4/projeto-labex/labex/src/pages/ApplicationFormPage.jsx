@@ -104,7 +104,7 @@ transition: 0.5s all ease;
 }
 `;
 
-function ApplicationFormPage() {
+const ApplicationFormPage = () => {
     const navigate = useNavigate();
 
 

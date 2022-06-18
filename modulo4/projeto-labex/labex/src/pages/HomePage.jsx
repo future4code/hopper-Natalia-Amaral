@@ -18,8 +18,8 @@ justify-content: start;
 align-items: center;
 text-align: center;
 height: 12vh;
-background-color: rgb(255, 246, 142);
-color: rgb(95, 102, 153);
+background-color: rgb(95, 102, 153);
+color:   rgb(255, 246, 142);
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   
@@ -35,11 +35,11 @@ const Footer = styled.footer`
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background-color: rgb(255, 246, 142);
+  background-color: rgb(95, 102, 153);
   color: rgb(95, 102, 153);
   height: 10vh;
   width: 98, 5vw;
-  color: rgb(95, 102, 153);
+  color: rgb(255, 246, 142);
   padding-top: 10px;
   
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -51,7 +51,7 @@ const Footer = styled.footer`
 const Nav = styled.nav`
   padding-top: 25px;
   padding-bottom:20px;
-  height: 73vh;
+  height: 72vh;
   width: 100vw;
   display: flex;
   text-align: center;
@@ -104,7 +104,7 @@ transition: 0.5s all ease;
 }
 `;
 
-function HomePage() {
+const HomePage = () => {
     const navigate = useNavigate();
     return (
 

@@ -106,7 +106,7 @@ const Nav = styled.nav`
   }
 `;
 
-function LoginPage(){
+const LoginPage = () => {
     const navigate = useNavigate();
 
     return(
