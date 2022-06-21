@@ -15,10 +15,13 @@ const Div = styled.div`
   height: 100vh;
 `;
 
-const H1 = styled.h1`
+const Header = styled.header`
   display: flex;
+  position: absolute;
+  padding-bottom: 350px;
+  padding-left: 15px;
+  flex-direction: column;
   align-items: center;
-  padding-top:50px;
   color: white;
 `;
 
@@ -39,7 +42,11 @@ const Form = styled.form`
   }
 `;
 
-const Button = styled.button`  
+const DivFilho = styled.div`  
+  display: flex;
+  flex-direction: row;
+
+  button{
   position: relative;
   border-color: white;
   border-radius: 10em;
@@ -61,13 +68,16 @@ const Button = styled.button`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+  }
 `;
 
 const LoginPage = () => {
   const navigate = useNavigate()
   return (
     <Div>
-      <H1>Fazer login</H1>
+      <Header>
+      <h1>Fazer login</h1>
+      </Header>
       <Form>
         <input
           placeholder={'E-mail'}
@@ -82,8 +92,11 @@ const LoginPage = () => {
           onChange=""
           /><br/>
       </Form>
-      <Button onClick={() => navigate("/")}>Home <BsFillHouseFill/></Button>
-      <Button type="submit" value="Enviar" onClick={() => navigate ("/admin/trips/create")}>Entrar <IoIosLogIn/></Button>
+        <DivFilho>
+        <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
+        <button type="submit" value="Enviar" onClick={() => navigate ("/admin/trips/create")}>Entrar <IoIosLogIn/></button>
+        </DivFilho>
+      
     </Div>
   );
 }

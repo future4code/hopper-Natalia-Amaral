@@ -17,15 +17,21 @@ const Div = styled.div`
   height: 100vh;
 `;
 
-const H1 = styled.h1`
+const Header = styled.header`
   display: flex;
+  position: absolute;
+  padding-bottom: 200px;
+  padding-left: 15px;
   flex-direction: column;
   align-items: center;
-  padding-top:50px;
   color: white;
 `;
 
-const Button = styled.button`  
+const DivFilho = styled.div`  
+  display: flex;
+  flex-direction: row;
+
+  button{
   position: relative;
   border-color: white;
   border-radius: 10em;
@@ -47,6 +53,7 @@ const Button = styled.button`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+  }
 `;
 
 const ListTripsPage = () => {
@@ -57,7 +64,9 @@ const ListTripsPage = () => {
 
   return (
     <Div>
-      <H1>Lista de Viagens</H1>
+       <Header>
+      <h1>Lista de viagens</h1>
+      </Header>
       {trips &&
         trips.map(trip => (
           <ul key={trip.id}>
@@ -83,8 +92,10 @@ const ListTripsPage = () => {
             </li>
           </ul>
         ))}
-        <Button onClick={() => navigate("/")}>Home <BsFillHouseFill/></Button>
-        <Button onClick={() => navigate("/login")}>Login <BsFillFilePersonFill/></Button>
+        <DivFilho>
+        <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
+        <button onClick={() => navigate("/login")}>Login <BsFillFilePersonFill/></button>
+        </DivFilho>
     </Div>
   );
 }

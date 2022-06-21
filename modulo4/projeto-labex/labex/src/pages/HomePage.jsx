@@ -9,13 +9,17 @@ const Div = styled.div`
   align-items: center;
   justify-items:center;
   justify-content: center;
-  flex-direction:column;
+  /* flex-direction:column; */
   background-image:url(https://cdn.pixabay.com/photo/2020/03/26/02/01/astronaut-4968983_960_720.jpg);
   background-size: cover;
   height: 100vh;
 `;
 
-const Button = styled.button`  
+const DivFilho = styled.div`  
+  display: flex;
+  flex-direction: row;
+
+  button{
   position: relative;
   border-color: white;
   border-radius: 10em;
@@ -37,13 +41,16 @@ const Button = styled.button`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+  }
 `;
 
-const H1 = styled.h1`
+const Header = styled.header`
   display: flex;
+  position: absolute;
+  padding-bottom: 200px;
+  padding-left: 40px;
   flex-direction: column;
   align-items: center;
-  padding-top:50px;
   color: white;
 `;
 
@@ -52,9 +59,13 @@ const HomePage = () => {
 
   return (
     <Div>
-      <H1>LabeX</H1>
-      <Button onClick={()=> navigate("/trips/list")}>Ver viagens <BsListUl/></Button>
-      <Button onClick={() => navigate("/login")}>Login <FaUserCheck/></Button>
+      <Header>
+      <h1>LabeX</h1>
+      </Header>
+      <DivFilho>
+      <button onClick={()=> navigate("/trips/list")}>Ver viagens <BsListUl/></button>
+      <button onClick={() => navigate("/login")}>Login <FaUserCheck/></button>
+      </DivFilho>
     </Div>
   );
 }

@@ -11,15 +11,18 @@ const Div = styled.div`
   justify-items:center;
   justify-content: center;
   flex-direction:column;
-  background-image:url(https://financeone.com.br/wp-content/uploads/2021/07/Viagem-ao-espaco-533x261.jpg);
+  background-image:url(https://www.eusemfronteiras.com.br/wp-content/uploads/2019/03/44449792_m.jpg);
   background-size: cover;
   height: 100vh;
 `;
 
-const H1 = styled.h1`
+const Header = styled.header`
   display: flex;
+  position: absolute;
+  padding-bottom: 470px;
+  padding-left: 15px;
+  flex-direction: column;
   align-items: center;
-  padding-top:50px;
   color: white;
 `;
 
@@ -34,7 +37,7 @@ const Form = styled.form`
     background-color: #d6d0d0;
     height: 3vh;
     width: 20vw;
-    border-color: white;
+    border-color: #c07575;
     border-radius: 5em;
     border: 1px solid;
   }
@@ -43,13 +46,18 @@ const Form = styled.form`
     background-color: #d6d0d0;
     height: 3vh;
     width: 20vw;
-    border-color: white;
+    border-color: #c07575;
     border-radius: 5em;
     border: 1px solid;
   }
 `;
 
-const Button = styled.button`  
+const DivFilho = styled.div`  
+  display: flex;
+  flex-direction: row;
+  
+
+  button{
   position: relative;
   border-color: white;
   border-radius: 10em;
@@ -71,13 +79,16 @@ const Button = styled.button`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+  }
 `;
 
 const CreateTripPage = () => {
   const navigate = useNavigate();
   return (
     <Div>
-      <H1>Criar Viagem</H1>
+      <Header>
+      <h1>Criar viagem</h1>
+      </Header>
       <Form>
         <input
           placeholder="Nome da viagem"
@@ -132,8 +143,11 @@ const CreateTripPage = () => {
         min="50"
         value=""
         /><br/>
-          <Button onClick={() => navigate("/")}>Home <BsFillHouseFill/></Button>
-          <Button onClick={() => navigate ("/admin/trips/create")}>Criar <BsFillPlusCircleFill/></Button>
+          <DivFilho>
+          <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
+          <button onClick={() => navigate ("/admin/trips/create")}>Criar <BsFillPlusCircleFill/></button>
+          </DivFilho>
+          
       </Form>
     </Div>
   )
