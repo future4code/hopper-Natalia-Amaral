@@ -1,150 +1,82 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"
-import styled from "styled-components";
+import React from 'react'
+import { countries } from '../hooks/Countries';
+import {BsFillHouseFill} from "react-icons/bs"
+import { useNavigate } from 'react-router-dom';
 
-const Img = styled.img`
-height: 9vh;
-margin-right:20px;
-margin-left:  10px;
-@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  height: 8vh;
-}
-`;
-
-const HeaderPrincipal = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: start;
-align-items: center;
-text-align: center;
-height: 12vh;
-background-color: rgb(255, 246, 142);
-color: rgb(95, 102, 153);
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  
-@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  font-size: 20px;
-  width: 100vw;
-}
-`;
-
-const Footer = styled.footer`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  background-color: rgb(255, 246, 142);
-  color: rgb(95, 102, 153);
-  height: 10vh;
-  width: 98, 5vw;
-  color: rgb(95, 102, 153);
-  padding-top: 10px;
-  
-  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    width: 100vw;
-    font-size: 12px;
-  }
-`;
-
-const Nav = styled.nav`
-  padding-top: 200px;
-  padding-bottom: 0px;
-  height: 56vh;
-  width: 100vw;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  background-size: cover;
-  background-color: rgb(95, 102, 153);;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-size: 25px;
-  display: flex;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-
-
-  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    font-size: 25px;
-    width: 100vw;
-    height: 110vh;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-`;
-
-const Button = styled.button`
-display: inline-block;
-margin-top: 30px;
-width: 100px;
-text-align: center;
-justify-content: space-between;
-align-items: center;
-font-size: 13px;
-border-radius: 8px;
-border: 1px solid black;
-height: 30px;
-background-color: rgb(255, 246, 142);
-color: rgb(95, 102, 153);
-transition: 0.5s all ease;
-  &:hover {
-    background-color:  rgb(95, 102, 153);
-    color: white;
-  }
-
-  
-@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  font-size: 15px;
-  width: 150px;
-}
-`;
 
 const ApplicationFormPage = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-
-    return (
+  return (
+    <div>
+      <h3>Se inscreva para uma viagem</h3>
+      <form>
+        <select defaultValue="" onChange="">
+          <option value="" disabled>
+            Escolha uma Viagem
+          </option>
+        </select>
+        <input
+          placeholder={'Nome'}
+          name={'name'}
+          value=""
+          onChange=""
+          pattern={'^.{3,}$'}
+          title={'O nome deve ter no mínimo 10 caracteres'}
+          required
+        />
+        <input
+          placeholder={'Idade'}
+          type={'number'}
+          name={'age'}
+          value=""
+          onChange=""
+          required
+          min={18}
+        />
+        <input
+          placeholder={'Texto de Candidatura'}
+          name={'applicationText'}
+          value=""
+          onChange=""
+          required
+          pattern={'^.{30,}$'}
+          title={'O texto deve ter no mínimo 30 caracteres'}
+        />
+        <input
+          placeholder={'Profissão'}
+          name={'profession'}
+          value=""
+          onChange=""
+          required
+          pattern={'^.{10,}$'}
+          title={'A profissão deve ter no mínimo 10 caracteres'}
+        />
+        <select
+          placeholder={'País'}
+          name={'country'}
+          value=""
+          onChange=""
+          required
+        >
+          <option value={''} disabled>
+            Escolha um País
+          </option>
+          {countries.map(country => {
+            return (
+              <option value={country} key={country}>
+                {country}
+              </option>
+            )
+          })}
+        </select>
         <div>
-            <HeaderPrincipal>
-                <Img src="../imagens/possivel-logo.png"/>
-                <h2 onClick={() => navigate("/")}>LabeX</h2>
-            </HeaderPrincipal>
-
-            <Nav>
-            <h1>Ver opções</h1>
-            <div>
-                <form>
-                    Nome: <input></input><br/>
-                    Idade: <input type="number" ></input><br/>
-                </form>
-
-                Para onde gostaria de ir ?
-                <select>
-                    <option> - </option>
-                    <option>Júpiter</option>
-                    <option>Saturno</option>
-                    <option>Mercúrio</option>
-                    <option>Vênus</option>
-                </select><br />
-                <Button type="submit" value="Enviar">Enviar</Button>
-                <Button onClick={() => navigate("/login")}>Fazer login</Button>
-            </div>
-            </Nav>
-
-            <Footer>
-                 &copy; 2022 All rights reserved.
-                <p>Projeto Desenvolvido por Natália Amaral ♥</p>
-            </Footer>
+          <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
+          <button type={'submit'}>Enviar</button>
         </div>
-
-    )
+      </form>
+    </div>
+  )
 }
-
-
 
 export default ApplicationFormPage;
