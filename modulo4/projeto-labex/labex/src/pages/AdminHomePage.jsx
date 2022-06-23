@@ -38,7 +38,7 @@ const deleteTrip = (id) => {
 useEffect(() => {getTrips()}, []);
 
 const receiveId = (id) => {
-  console.log('guarda id',id);
+  console.log('Guarda id',id);
   localStorage.setItem('id', id)
 }
 
@@ -46,9 +46,8 @@ const tripList = nameTrips.map((trip) =>{
   return (
   <div key={trip.id}>
     <div>
-      <div to="/admin/trips/:id">
+        <button onClick={() => navigate("/admin/trips/:id")}></button>
         <button onClick={() => receiveId(trip.id)}></button> 
-      </div>
          <p><strong> Nome: </strong>{trip.name}</p>
     </div>
       <button onClick={()=>{deleteTrip(trip.id)}}></button>

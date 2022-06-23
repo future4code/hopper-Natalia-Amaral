@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { BsFillHouseFill } from "react-icons/bs"
-import {BsFillFilePersonFill} from "react-icons/bs"
 import styled from 'styled-components'
 import axios from 'axios'
 
@@ -94,7 +93,7 @@ const ListTripsPage = () => {
     })
 };
 
-const listaDeViagem = trips.map((trip) =>{
+const listaDeViagem = trips.map((trip) => {
   return(
     <DivList key={trip.id}>
       <p><strong>Nome: </strong>{trip.name}</p>
@@ -103,7 +102,6 @@ const listaDeViagem = trips.map((trip) =>{
       <p><strong>Duração: </strong>{trip.durationInDays}</p>
       <p><strong>Data: </strong>{trip.date}</p>
     </DivList>
-
   )
 });
 

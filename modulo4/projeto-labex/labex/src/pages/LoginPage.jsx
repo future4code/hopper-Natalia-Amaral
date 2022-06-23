@@ -89,7 +89,7 @@ const LoginPage = () => {
     axios.post(url, body, {headers})
     .then(res => {
         localStorage.setItem("token", res.data.token);
-        navigate("/admin/trips/list")
+        navigate("/trips/application")
     })
     .catch(error => {
         console.log(error.response);

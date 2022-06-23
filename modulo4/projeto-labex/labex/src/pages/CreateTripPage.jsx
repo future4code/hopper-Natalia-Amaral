@@ -86,7 +86,7 @@ const DivFilho = styled.div`
 
 const CreateTripPage = () => {
   const [idTrip, setTripId] = useState("");
-  const [trips, setTrips] = useState();
+  const [trips, setTrips] = useState("");
   const navigate = useNavigate();
 
   const { form, onChange, cleanFields } = useForm({
@@ -175,21 +175,20 @@ const CreateTripPage = () => {
           title={"A descrição deve ter no mínimo 3 caracteres"}
           /><br/>
         <input
-        name={"durationInDays"}
-        value={form.durationInDays}
-        placeholder="Duração da viagem"
-        onChange={onChange}
-        type="number"
-        required
+          name={"durationInDays"}
+          value={form.durationInDays}
+          placeholder="Duração da viagem"
+          onChange={onChange}
+          type="number"
+          required
         /><br/>
-          <DivFilho>
+        <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
           <button onClick={() => navigate ("/admin/trips/create")}>Criar <BsFillPlusCircleFill/></button>
-          </DivFilho>
-          
+        </DivFilho>
       </Form>
     </Div>
-  )
+  );
 }
 
 export default CreateTripPage;

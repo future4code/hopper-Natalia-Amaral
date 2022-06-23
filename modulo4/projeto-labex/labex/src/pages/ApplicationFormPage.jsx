@@ -40,7 +40,7 @@ const ApplicationFormPage = () => {
 
   const OptionTrip = trips && trips.trips.map((nome) => {
     return <option key={nome.id} value={nome.id}>{nome.name}</option>
-  })
+  });
 
   const sendApplication = () => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips/${idTrip}/apply`
@@ -55,7 +55,7 @@ const ApplicationFormPage = () => {
     })
     .catch((err) => 
           console.log(err.response.message))
-  }
+  };
 
 
     return (

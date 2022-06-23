@@ -1,1 +1,1 @@
-export const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper"
+export const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper"
