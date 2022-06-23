@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import {BsFillHouseFill} from "react-icons/bs"
 import {IoIosLogIn} from "react-icons/io"
 import styled from 'styled-components'
+import { useState } from 'react'
+import axios from 'axios'
 
 const Div = styled.div`
   display: flex;
@@ -18,21 +20,20 @@ const Div = styled.div`
 const Header = styled.header`
   display: flex;
   position: absolute;
-  padding-bottom: 350px;
+  padding-bottom: 430px;
   padding-left: 15px;
-  flex-direction: column;
   align-items: center;
   color: white;
 `;
 
 const Form = styled.form`
-  display: flex;
   align-items: center;
   justify-items:center;
   justify-content: center;
-  flex-direction:column;
 
   input{
+    display: flex;
+    flex-direction:column;
     background-color: #d6d0d0;
     height: 3vh;
     width: 20vw;
@@ -45,6 +46,7 @@ const Form = styled.form`
 const DivFilho = styled.div`  
   display: flex;
   flex-direction: row;
+  
 
   button{
   position: relative;
@@ -72,7 +74,40 @@ const DivFilho = styled.div`
 `;
 
 const LoginPage = () => {
-  const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassoword] = useState("");
+  const navigate = useNavigate();
+
+  const onSubmitLogin = () => {
+    const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/login'
+    const headers = {"Content-Type":"application/json"}
+    const body = {
+        "email": email,
+        "password": password,
+    }
+
+    axios.post(url, body, {headers})
+    .then(res => {
+        localStorage.setItem("token", res.data.token);
+        navigate("/admin/trips/list")
+    })
+    .catch(error => {
+        console.log(error.response);
+        alert("Por favor, digite seu email e senha!")
+    })
+  }
+
+  const onChangeEmail = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const onChangePassword = (event) => {
+    setPassoword(event.target.value);
+  }
+
+
+
+
   return (
     <Div>
       <Header>
@@ -80,23 +115,26 @@ const LoginPage = () => {
       </Header>
       <Form>
         <input
-          placeholder={'E-mail'}
-          type={'email'}
-          value=""
-          onChange=""
+          placeholder={"E-mail"}
+          type={"email"}
+          onChange={onChangeEmail}
+          value={email}
+          required
         /><br/>
         <input
-          placeholder={'Senha'}
-          type={'password'}
-          value=""
-          onChange=""
+          placeholder={"Senha"}
+          type={"password"}
+          value={password}
+          onChange={onChangePassword}
+          required
+          pattern="^.{6,}$"
+          title="Sua senha deve ter no mínimo 6 caracteres"
           /><br/>
-      </Form>
-        <DivFilho>
-        <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-        <button type="submit" value="Enviar" onClick={() => navigate ("/admin/trips/create")}>Entrar <IoIosLogIn/></button>
-        </DivFilho>
-      
+      </Form>    
+      <DivFilho>
+          <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
+          <button onClick={onSubmitLogin}> Entrar <IoIosLogIn/></button>
+       </DivFilho>  
     </Div>
   );
 }

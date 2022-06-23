@@ -1,10 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { getTrips } from '../services/RequestApi'
-import {BsFillHouseFill} from "react-icons/bs"
+import { BsFillHouseFill } from "react-icons/bs"
 import {BsFillFilePersonFill} from "react-icons/bs"
 import styled from 'styled-components'
+import axios from 'axios'
 
 const Div = styled.div`
   display: flex;
@@ -25,11 +25,32 @@ const Header = styled.header`
   flex-direction: column;
   align-items: center;
   color: white;
+
+  div{
+  position: relative;
+  top: 20%;
+  overflow-y: scroll;
+  width: 200%;
+  border:solid 1px #F8F8FF;
+  height: 470px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  }
+`;
+
+const DivList = styled.div`
+border:solid 1px #3E86F5;
+padding:10px;
+margin-left: 20px;
+margin-top: 20px;
+border-radius: 30px;
+font-size: 12px;  
 `;
 
 const DivFilho = styled.div`  
   display: flex;
   flex-direction: row;
+  padding-top: 450px;
 
   button{
   position: relative;
@@ -62,39 +83,40 @@ const ListTripsPage = () => {
 
   useEffect(() => {getTrips()}, []);
 
+  const getTrips = () => {
+    axios
+    .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips`)
+    .then((res) => {setTrips(res.data.trips);
+      console.log(res)
+    })
+    .catch((err) => {console.log(err);
+
+    })
+};
+
+const listaDeViagem = trips.map((trip) =>{
+  return(
+    <DivList key={trip.id}>
+      <p><strong>Nome: </strong>{trip.name}</p>
+      <p><strong>Descrição: </strong>{trip.description}</p>
+      <p><strong>Planeta: </strong>{trip.planet}</p>
+      <p><strong>Duração: </strong>{trip.durationInDays}</p>
+      <p><strong>Data: </strong>{trip.date}</p>
+    </DivList>
+
+  )
+});
+
+
   return (
     <Div>
        <Header>
-      <h1>Lista de viagens</h1>
-      </Header>
-      {trips &&
-        trips.map(trip => (
-          <ul key={trip.id}>
-            <li>
-              <strong>Nome:</strong>
-              {trip.name}
-            </li>
-            <li>
-              <strong>Descrição:</strong>
-              {trip.description}
-            </li>
-            <li>
-              <strong>Planeta:</strong>
-              {trip.planet}
-            </li>
-            <li>
-              <strong>Duração:</strong>
-              {trip.durationInDays}
-            </li>
-            <li>
-              <strong>Data:</strong>
-              {trip.date}
-            </li>
-          </ul>
-        ))}
+          <h1>Lista de viagens</h1>
+          <div>{listaDeViagem}</div>
+        </Header>
         <DivFilho>
-        <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-        <button onClick={() => navigate("/login")}>Login <BsFillFilePersonFill/></button>
+          <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
+          <button onClick={() => navigate("/trips/application")}>Inscreva-se</button>
         </DivFilho>
     </Div>
   );

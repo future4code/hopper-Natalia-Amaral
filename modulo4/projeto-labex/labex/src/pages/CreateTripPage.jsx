@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { planets } from '../hooks/Planets';
 import {BsFillHouseFill} from "react-icons/bs"
 import {BsFillPlusCircleFill} from "react-icons/bs"
 import styled from 'styled-components';
+import useForm from '../hooks/UseForm';
+import axios from 'axios';
 
 const Div = styled.div`
   display: flex;
@@ -83,28 +85,64 @@ const DivFilho = styled.div`
 `;
 
 const CreateTripPage = () => {
+  const [idTrip, setTripId] = useState("");
+  const [trips, setTrips] = useState();
   const navigate = useNavigate();
+
+  const { form, onChange, cleanFields } = useForm({
+    name: "",
+    description: "",
+    planet: "",
+    durationInDays: "",
+    date:""
+  });
+
+  const clearInput = () => {
+    cleanFields()
+    setTripId("")
+}
+  const cadastrar = (event) => {
+    event.preventDefault();
+    sendApplication(form, idTrip, clearInput)
+    console.log("Formulário enviado!", form);
+    cleanFields();
+  };
+
+   const sendApplication = () => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips`
+    const headers = { auth: localStorage.getItem("token")}
+    axios
+    .post( url, form, {headers})
+    .then((res) => { 
+          setTrips(res.data.trip)
+          alert("Viagem criada com sucesso!")
+          cleanFields()
+          console.log(res.data)          
+    })
+    .catch((err) => 
+          console.log(err.response.message))
+  }
+
   return (
     <Div>
       <Header>
       <h1>Criar viagem</h1>
       </Header>
-      <Form>
+      <Form onSubmit={cadastrar}>
         <input
-          placeholder="Nome da viagem"
-          type={"text"}
-          name="name"
-          pattern="^.{5,}$"
-          onChange=""
-          title="O nome da viagem deve ter no mínimo 5 caracteres"
-          required=""
-          value=""
+          name={"name"}
+          value={form.name}
+          placeholder="Nome"
+          onChange={onChange}
+          required
+          pattern={"^.{3,}"}
+          title={"O nome deve ter no mínimo 3 letras"}
           /><br/>
         <select
-          placeholder={'Planeta'}
-          name={'planet'}
-          defaultValue={''}
-          onChange=""
+          name={"planet"}
+          value={form.planet}
+          placeholder="Planeta"
+          onChange={onChange}
           required
         ><br/>
           <option value={''} disabled>
@@ -119,29 +157,30 @@ const CreateTripPage = () => {
           })}
         </select><br/>
         <input
-          placeholder={'Data'}
-          type={'date'}
-          name={'date'}
-          value=""
-          onChange=""
+          name={"date"}
+          value={form.date}
+          placeholder="Texto de Candidatura"
+          onChange={onChange}
+          pattern={"^.{3,}"}
           required
-          min=""
+          type={"date"}
         /><br/>
         <input
+          name={"description"}
+          value={form.description}
           placeholder="Descrição"
-          name="description"
-          required=""
-          pattern="^.{30,}$"
-          title="O nome deve ter no mínimo 30 caracteres"
-          value=""
+          onChange={onChange}
+          pattern={"^.{3,}"}
+          required
+          title={"A descrição deve ter no mínimo 3 caracteres"}
           /><br/>
         <input
-        placeholder="Duração em dias"
+        name={"durationInDays"}
+        value={form.durationInDays}
+        placeholder="Duração da viagem"
+        onChange={onChange}
         type="number"
-        name="durationInDays"
-        required=""
-        min="50"
-        value=""
+        required
         /><br/>
           <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
