@@ -6,6 +6,7 @@ import {BsFillPlusCircleFill} from "react-icons/bs"
 import styled from 'styled-components';
 import useForm from '../hooks/UseForm';
 import axios from 'axios';
+import useProtectedPage from '../hooks/useProtectedPages';
 
 const Div = styled.div`
   display: flex;
@@ -88,6 +89,7 @@ const CreateTripPage = () => {
   const [idTrip, setTripId] = useState("");
   const [trips, setTrips] = useState("");
   const navigate = useNavigate();
+  useProtectedPage();
 
   const { form, onChange, cleanFields } = useForm({
     name: "",
@@ -109,7 +111,7 @@ const CreateTripPage = () => {
   };
 
    const sendApplication = () => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips`
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper/trips`
     const headers = { auth: localStorage.getItem("token")}
     axios
     .post( url, form, {headers})

@@ -19,7 +19,7 @@ const useRequestApi =(url) => {
 
   return (
     <>
-    [data, getTrip]
+    [data , getTrip]
     </>
   );
 }

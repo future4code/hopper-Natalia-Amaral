@@ -10,7 +10,7 @@ const  AdminHomePage = () => {
   useProtectedPages();
   
   const getTrips = ()=>{
-    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips`)
+    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper/trips`)
     .then((res) => {setTrips(res.data.trips);
       console.log(res)
     })
@@ -19,7 +19,7 @@ const  AdminHomePage = () => {
 };
 
 const deleteTrip = (id) => {
-  const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips/${id}`
+  const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper/trips/${id}`
   const headers = { auth: localStorage.getItem("token")}
   axios
     .delete( url, {headers})

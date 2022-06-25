@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
+import useProtectedPage from '../hooks/useProtectedPages';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
+  useProtectedPage();
 
   return (
     <>

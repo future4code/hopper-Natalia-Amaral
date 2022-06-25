@@ -78,25 +78,6 @@ const LoginPage = () => {
   const [password, setPassoword] = useState("");
   const navigate = useNavigate();
 
-  const onSubmitLogin = () => {
-    const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/login'
-    const headers = {"Content-Type":"application/json"}
-    const body = {
-        "email": email,
-        "password": password,
-    }
-
-    axios.post(url, body, {headers})
-    .then(res => {
-        localStorage.setItem("token", res.data.token);
-        navigate("/trips/application")
-    })
-    .catch(error => {
-        console.log(error.response);
-        alert("Por favor, digite seu email e senha!")
-    })
-  }
-
   const onChangeEmail = (event) => {
     setEmail(event.target.value);
   }
@@ -105,8 +86,25 @@ const LoginPage = () => {
     setPassoword(event.target.value);
   }
 
+  const onSubmitLogin = () => {
+    const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper/login';
+    const headers = {"Content-Type":"application/json"};
+    const body = {
+        "email": email,
+        "password": password
+    };
 
-
+    axios
+    .post(url, body, {headers})
+    .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        navigate("/admin/trips/:id");
+    })
+    .catch((error) => {
+        console.log(error.response.data);
+        alert("Por favor, digite seu email e senha!");
+    });
+  };
 
   return (
     <Div>
@@ -133,7 +131,7 @@ const LoginPage = () => {
       </Form>    
       <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-          <button onClick={onSubmitLogin}> Entrar <IoIosLogIn/></button>
+          <button onClick={onSubmitLogin} type='submit'> Entrar <IoIosLogIn/></button>
        </DivFilho>  
     </Div>
   );

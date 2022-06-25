@@ -1,133 +1,157 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { countries } from '../hooks/Countries';
 import {BsFillHouseFill} from "react-icons/bs"
-import {IoIosRocket} from 'react-icons/io'
 import { useNavigate } from 'react-router-dom';
-import useRequestApi from '../hooks/useRequestApi';
-import axios from 'axios';
-import useForm from '../hooks/UseForm';
+import styled from 'styled-components';
 
+const Div = styled.div`
+  display: flex;
+  align-items: center;
+  justify-items:center;
+  justify-content: center;
+  flex-direction:column;
+  background-image: url(https://paginanews.com.br/wp-content/uploads/2021/04/capturadepantall-5d810b602e90bd9af8d5719262f312fe-1200x600.jpg);
+  background-size: cover;
+  height: 100vh;
+`;
+
+const Header = styled.header`
+  display: flex;
+  position: absolute;
+  padding-bottom: 500px;
+  /* padding-left: 20px; */
+  /* flex-direction: column; */
+  color: white;
+`;
+
+const Form = styled.form`
+ 
+  input{
+    display: flex;
+    flex-direction:column;
+    background-color: #d6d0d0;
+    height: 4vh;
+    width: 21vw;
+    border-color: white;
+    border-radius: 1em;
+    border: 1px solid;
+  }
+
+  select{
+    display: flex;
+    flex-direction:column;
+    background-color: #d6d0d0;
+    height: 4vh;
+    width: 21vw;
+    border-color: white;
+    border-radius: 1em;
+    border: 1px solid;
+  }
+`;
+
+const DivFilho = styled.div`  
+
+  button{
+  border-color: white;
+  border-radius: 10em;
+  border: 1px solid;
+  margin: 20px; 
+  padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size:1em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  margin-top: 50px;
+  background-color: transparent;
+  box-shadow: 0 0 40px 40px transparent inset, 0 0 0 0 white;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+    :hover {
+     box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
+    }
+  }
+`;
 
 const ApplicationFormPage = () => {
-  const [idTrip, setTripId] = useState("");
-  const [success, setSuccess] = useState(false)
-  const [trips] = useRequestApi("https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips", {})
+
+  
   const navigate = useNavigate();
 
-  const onChangeTripId = (event) => {
-    setTripId(event.target.value)
-};
-
-  const { form, onChange, cleanFields } = useForm({
-    name: "",
-    age: "",
-    applicationText: "",
-    profession: "",
-    country:""
-  });
-
-  const clearInput = () => {
-    cleanFields()
-    setTripId("")
-}
-
-  const register = (event) => {
-    event.preventDefault();
-    sendApplication(form, idTrip, clearInput)
-    console.log("Enviado!", form);
-    cleanFields();
-  };
-
-  const OptionTrip = trips && trips.trips.map((nome) => {
-    return <option key={nome.id} value={nome.id}>{nome.name}</option>
-  });
-
-  const sendApplication = () => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips/${idTrip}/apply`
-    const headers = { "Content-Type": "application/json"}
-    axios
-    .post( url, form, {headers})
-    .then((res) => { 
-          if(!setSuccess(res.data.success))
-          alert("Incrição enviada com sucesso!")
-          cleanFields()
-          console.log(res.data)          
-    })
-    .catch((err) => 
-          console.log(err.response.message))
-  };
-
-
-    return (
-      <div>
-          <header>
-            <nav>
-              <button onClick={() => navigate("/trips/list")}></button>
-            </nav>
-          </header>
-          <div>
-            <h3>Inscreva-se para uma viagem</h3>
-            <form onSubmit={register}>
-              <select  
-              defaultValue="" 
-              onChange={onChangeTripId}>
-                <option value="" disabled>Escolha uma viagem</option>
-                {OptionTrip}
-              </select>
-              <input
-                name={"name"}
-                value={form.name}
-                placeholder="Nome"
-                onChange={onChange}
-                required
-                pattern={"^.{3,}"}
-                title={"O nome deve ter no mínimo 3 letras"}
-              />
-              <input
-                name={"age"}
-                value={form.age}
-                placeholder="Idade"
-                onChange={onChange}
-                type={"number"}
-                min={18}
-                required
-              />
-              <input
-                name={"applicationText"}
-                value={form.applicationText}
-                placeholder="Texto de Candidatura"
-                onChange={onChange}
-                pattern={"^.{3,}"}
-                required
-                title={"O texto deve ter no mínimo 3 caracteres"}
-              />
-              <input
-                name={"profession"}
-                value={form.profession}
-                placeholder="Profissão"
-                onChange={onChange}
-                pattern={"^.{10,}"}
-                required
-                title={"A profissão deve ter no mínimo 10 caracteres"}
-              />
-              <select
-                name={"country"}
-                value={form.country}
-                placeholder="País"
-                onChange={onChange}
-                required
-              >
-            <option value={""} disabled>Escolha um País</option>
-              {countries.map((item)=>{
-                return <option value={item} key={item}>{item}</option>
-              })}
-            </select>
-            </form>
-          </div>
+  return (
+    <Div>
+      <Header>
+      <h3>Se inscreva para uma viagem</h3>
+      </Header>
+      <Form>
+        <select defaultValue="" onChange="">
+          <option value="" selected>
+            Escolha uma Viagem
+          </option>
+        </select>
+        <input
+          placeholder={'Nome'}
+          name={'name'}
+          value=""
+          onChange=""
+          pattern={'^.{3,}$'}
+          title={'O nome deve ter no mínimo 10 caracteres'}
+          required
+        />
+        <input
+          placeholder={'Idade'}
+          type={'number'}
+          name={'age'}
+          value=""
+          onChange=""
+          required
+          min={18}
+        />
+        <input
+          placeholder={'Texto de Candidatura'}
+          name={'applicationText'}
+          value=""
+          onChange=""
+          required
+          pattern={'^.{30,}$'}
+          title={'O texto deve ter no mínimo 30 caracteres'}
+        />
+        <input
+          placeholder={'Profissão'}
+          name={'profession'}
+          value=""
+          onChange=""
+          required
+          pattern={'^.{10,}$'}
+          title={'A profissão deve ter no mínimo 10 caracteres'}
+        />
+        <select
+          placeholder={'País'}
+          name={'country'}
+          value=""
+          onChange=""
+          required
+        >
+          <option value={''} selected>
+            Escolha um País
+          </option>
+          {countries.map(country => {
+            return (
+              <option value={country} key={country}>
+                {country}
+              </option>
+            )
+          })}
+        </select>
+        <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-          <button type='submit'> Enviar <IoIosRocket/> </button>
-    </div>
-  );
+          <button type={'submit'}>Enviar</button>
+        </DivFilho>
+      </Form>
+    </Div>
+  )
 }
 
 export default ApplicationFormPage;

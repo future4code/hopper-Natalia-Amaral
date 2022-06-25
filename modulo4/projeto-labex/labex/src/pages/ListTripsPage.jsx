@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { BsFillHouseFill } from "react-icons/bs"
 import styled from 'styled-components'
 import axios from 'axios'
+import {IoIosPersonAdd} from 'react-icons/io'
 
 const Div = styled.div`
   display: flex;
@@ -20,18 +21,18 @@ const Header = styled.header`
   display: flex;
   position: absolute;
   padding-bottom: 200px;
-  padding-left: 15px;
   flex-direction: column;
   align-items: center;
   color: white;
 
   div{
+  text-align: center;
   position: relative;
-  top: 20%;
+  top: 5%;
   overflow-y: scroll;
-  width: 200%;
-  border:solid 1px #F8F8FF;
-  height: 470px;
+  width: 40vw;
+  border:solid 1px white;
+  height: 30vh;
   padding-right: 10px;
   padding-bottom: 10px;
   }
@@ -40,10 +41,10 @@ const Header = styled.header`
 const DivList = styled.div`
 border:solid 1px #3E86F5;
 padding:10px;
-margin-left: 20px;
-margin-top: 20px;
+margin-left: 5px;
+margin-top: px;
 border-radius: 30px;
-font-size: 12px;  
+font-size: 15px;  
 `;
 
 const DivFilho = styled.div`  
@@ -78,14 +79,14 @@ const DivFilho = styled.div`
 
 const ListTripsPage = () => {
   const navigate = useNavigate();
-  const [trips , setTrips] = useState([])
+  const [nameTrips , setTrips] = useState([])
 
   useEffect(() => {getTrips()}, []);
 
   const getTrips = () => {
     axios
-    .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:natalia-amaral-hopper/trips`)
-    .then((res) => {setTrips(res.data.trips);
+    .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper/trips`)
+    .then((res) => { setTrips(res.data.trips);
       console.log(res)
     })
     .catch((err) => {console.log(err);
@@ -93,7 +94,7 @@ const ListTripsPage = () => {
     })
 };
 
-const listaDeViagem = trips.map((trip) => {
+const listaDeViagem = nameTrips.map((trip) => {
   return(
     <DivList key={trip.id}>
       <p><strong>Nome: </strong>{trip.name}</p>
@@ -106,7 +107,7 @@ const listaDeViagem = trips.map((trip) => {
 });
 
 
-  return (
+return (
     <Div>
        <Header>
           <h1>Lista de viagens</h1>
@@ -114,7 +115,7 @@ const listaDeViagem = trips.map((trip) => {
         </Header>
         <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-          <button onClick={() => navigate("/trips/application")}>Inscreva-se</button>
+          <button onClick={() => navigate("/trips/application")}>Inscreva-se <IoIosPersonAdd/></button>
         </DivFilho>
     </Div>
   );
