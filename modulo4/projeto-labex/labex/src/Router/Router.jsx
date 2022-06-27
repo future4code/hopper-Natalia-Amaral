@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminHomePage from "../pages/AdminHomePage";
 import ApplicationFormPage from "../pages/ApplicationFormPage";
 import CreateTripPage from "../pages/CreateTripPage";
-import ErrorPage from "../pages/ErrorPage";
 import HomePage from "../pages/HomePage";
 import ListTripsPage from "../pages/ListTripsPage";
 import LoginPage from "../pages/LoginPage";
@@ -20,7 +19,6 @@ const Router = () => {
       <Route path={"/admin/trips/list"} element={<AdminHomePage/>}/>
       <Route path={"/admin/trips/create"} element={<CreateTripPage/>}/>
       <Route path={"/admin/trips/:id"} element={<TripDetailsPage/>}/>
-      <Route path={"*"} element={<ErrorPage/>}/>
       </Routes>
       </BrowserRouter>
     </div>

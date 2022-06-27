@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { countries } from '../hooks/Countries';
-import {BsFillHouseFill} from "react-icons/bs"
+import {BsListUl} from "react-icons/bs"
 import { useNavigate } from 'react-router-dom';
+import {IoIosArrowDropdown} from 'react-icons/io'
 import styled from 'styled-components';
+import useForm from '../hooks/UseForm';
+import { applyToTrip, useGetTrips } from '../hooks/useRequestApi';
 
 const Div = styled.div`
   display: flex;
@@ -18,9 +21,7 @@ const Div = styled.div`
 const Header = styled.header`
   display: flex;
   position: absolute;
-  padding-bottom: 500px;
-  /* padding-left: 20px; */
-  /* flex-direction: column; */
+  padding-bottom: 600px;
   color: white;
 `;
 
@@ -50,8 +51,11 @@ const Form = styled.form`
 `;
 
 const DivFilho = styled.div`  
+  display: flex;
+  flex-direction: row;
 
   button{
+  position: relative;
   border-color: white;
   border-radius: 10em;
   border: 1px solid;
@@ -77,66 +81,84 @@ const DivFilho = styled.div`
 
 const ApplicationFormPage = () => {
 
-  
-  const navigate = useNavigate();
+  const { form, onChange, cleanFields } = useForm({
+    applicationText: '',
+    profession: '',
+    country: '',
+    age: '',
+    name: '',
+    id: ''
+  });
 
+  const navigate = useNavigate()
+  const trips = useGetTrips()
+
+  const register = event => {
+    event.preventDefault()
+    applyToTrip(form)
+    cleanFields()
+  }
+  
   return (
     <Div>
       <Header>
       <h3>Se inscreva para uma viagem</h3>
       </Header>
-      <Form>
-        <select defaultValue="" onChange="">
-          <option value="" selected>
+      <Form onSubmit={register}>
+        <select defaultValue="" onChange={onChange} name={'nome'}>
+          <option value="" disabled>
             Escolha uma Viagem
           </option>
-        </select>
+          {trips.map(nome=>{
+          return <option key={nome.id} value={nome.id}>{nome.name}</option>
+          })}
+        </select><br/>
         <input
           placeholder={'Nome'}
           name={'name'}
-          value=""
-          onChange=""
+          value={form.name}
+          onChange={onChange}
           pattern={'^.{3,}$'}
           title={'O nome deve ter no mínimo 10 caracteres'}
           required
-        />
+        /><br/>
         <input
           placeholder={'Idade'}
           type={'number'}
           name={'age'}
-          value=""
-          onChange=""
+          value={form.age}
+          onChange={onChange}
           required
           min={18}
-        />
+        /><br/>
         <input
           placeholder={'Texto de Candidatura'}
           name={'applicationText'}
-          value=""
-          onChange=""
+          value={form.applicationText}
+          onChange={onChange}
           required
           pattern={'^.{30,}$'}
           title={'O texto deve ter no mínimo 30 caracteres'}
-        />
+        /><br/>
         <input
           placeholder={'Profissão'}
           name={'profession'}
-          value=""
-          onChange=""
+          value={form.profession}
+          onChange={onChange}
           required
           pattern={'^.{10,}$'}
           title={'A profissão deve ter no mínimo 10 caracteres'}
-        />
+        /><br/>
         <select
           placeholder={'País'}
           name={'country'}
-          value=""
-          onChange=""
+          value={form.country}
+          onChange={onChange}
           required
         >
-          <option value={''} selected>
+          <option value={''} disabled>
             Escolha um País
-          </option>
+          </option><br/>
           {countries.map(country => {
             return (
               <option value={country} key={country}>
@@ -146,8 +168,8 @@ const ApplicationFormPage = () => {
           })}
         </select>
         <DivFilho>
-          <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-          <button type={'submit'}>Enviar</button>
+          <button onClick={()=> navigate("/trips/list")}>Ver viagens <BsListUl/></button>
+          <button type={'submit'}>Enviar <IoIosArrowDropdown fontSize={20}/></button>
         </DivFilho>
       </Form>
     </Div>

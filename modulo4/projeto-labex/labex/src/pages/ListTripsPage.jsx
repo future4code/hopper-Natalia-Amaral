@@ -32,7 +32,7 @@ const Header = styled.header`
   overflow-y: scroll;
   width: 40vw;
   border:solid 1px white;
-  height: 30vh;
+  height: 35vh;
   padding-right: 10px;
   padding-bottom: 10px;
   }
@@ -50,7 +50,7 @@ font-size: 15px;
 const DivFilho = styled.div`  
   display: flex;
   flex-direction: row;
-  padding-top: 450px;
+  padding-top: 350px;
 
   button{
   position: relative;

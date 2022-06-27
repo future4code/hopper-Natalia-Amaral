@@ -98,7 +98,7 @@ const LoginPage = () => {
     .post(url, body, {headers})
     .then((res) => {
         localStorage.setItem("token", res.data.token);
-        navigate("/admin/trips/:id");
+        navigate("/admin/trips/list");
     })
     .catch((error) => {
         console.log(error.response.data);

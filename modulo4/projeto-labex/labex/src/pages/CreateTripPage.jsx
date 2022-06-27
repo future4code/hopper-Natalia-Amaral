@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { planets } from '../hooks/Planets';
 import {BsFillHouseFill} from "react-icons/bs"
 import {BsFillPlusCircleFill} from "react-icons/bs"
 import styled from 'styled-components';
 import useForm from '../hooks/UseForm';
-import axios from 'axios';
 import useProtectedPage from '../hooks/useProtectedPages';
 
 const Div = styled.div`
@@ -86,8 +85,6 @@ const DivFilho = styled.div`
 `;
 
 const CreateTripPage = () => {
-  const [idTrip, setTripId] = useState("");
-  const [trips, setTrips] = useState("");
   const navigate = useNavigate();
   useProtectedPage();
 
@@ -99,42 +96,30 @@ const CreateTripPage = () => {
     date:""
   });
 
-  const clearInput = () => {
-    cleanFields()
-    setTripId("")
-}
-  const cadastrar = (event) => {
-    event.preventDefault();
-    sendApplication(form, idTrip, clearInput)
-    console.log("Formulário enviado!", form);
-    cleanFields();
-  };
+  const date = new Date()
+  const minDate =
+    date.getFullYear() +
+    '-' +
+    ('0' + (date.getMonth() + 1)).substr(-2) +
+    '-' +
+    ('0' + date.getDate()).substr(-2)
 
-   const sendApplication = () => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/natalia-amaral-hopper/trips`
-    const headers = { auth: localStorage.getItem("token")}
-    axios
-    .post( url, form, {headers})
-    .then((res) => { 
-          setTrips(res.data.trip)
-          alert("Viagem criada com sucesso!")
-          cleanFields()
-          console.log(res.data)          
-    })
-    .catch((err) => 
-          console.log(err.response.message))
-  }
+  const submitCreationTrip = event => {
+    event.preventDefault()
+    CreateTripPage(form, cleanFields)
+    alert('Viagem criada com sucesso!', form)
+  };
 
   return (
     <Div>
       <Header>
       <h1>Criar viagem</h1>
       </Header>
-      <Form onSubmit={cadastrar}>
+      <Form onSubmit={submitCreationTrip}>
         <input
           name={"name"}
           value={form.name}
-          placeholder="Nome"
+          placeholder="Nome da viagem"
           onChange={onChange}
           required
           pattern={"^.{3,}"}
@@ -146,7 +131,7 @@ const CreateTripPage = () => {
           placeholder="Planeta"
           onChange={onChange}
           required
-        ><br/>
+          >
           <option value={''} disabled>
             Escolha um Planeta
           </option>
@@ -154,39 +139,40 @@ const CreateTripPage = () => {
             return (
               <option value={planet} key={planet}>
                 {planet}
-          </option>
+              </option>
             )
           })}
-        </select><br/>
-        <input
-          name={"date"}
+          </select><br/>
+          <input
+          placeholder={'Data'}
+          type={'date'}
+          name={'date'}
           value={form.date}
-          placeholder="Texto de Candidatura"
           onChange={onChange}
-          pattern={"^.{3,}"}
           required
-          type={"date"}
-        /><br/>
-        <input
-          name={"description"}
+          min={minDate}
+         /><br/>
+         <input
+          placeholder={'Descrição'}
+          name={'description'}
           value={form.description}
-          placeholder="Descrição"
           onChange={onChange}
-          pattern={"^.{3,}"}
           required
-          title={"A descrição deve ter no mínimo 3 caracteres"}
-          /><br/>
-        <input
-          name={"durationInDays"}
+          pattern={'^.{30,}$'}
+          title={'O nome deve ter no mínimo 30 caracteres'}
+         /><br/>
+         <input
+          placeholder={'Duração em dias'}
+          type={'number'}
+          name={'durationInDays'}
           value={form.durationInDays}
-          placeholder="Duração da viagem"
           onChange={onChange}
-          type="number"
           required
-        /><br/>
+          min={50}
+         />
         <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
-          <button onClick={() => navigate ("/admin/trips/create")}>Criar <BsFillPlusCircleFill/></button>
+          <button type={'submit'} >Criar <BsFillPlusCircleFill/></button>
         </DivFilho>
       </Form>
     </Div>
