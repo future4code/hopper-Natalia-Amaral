@@ -173,6 +173,7 @@ const CreateTripPage = () => {
         <DivFilho>
           <button onClick={() => navigate("/")}>Home <BsFillHouseFill/></button>
           <button type={'submit'} >Criar <BsFillPlusCircleFill/></button>
+          <button onClick={() => navigate("/admin/trips/:id")}> Detalhes </button>
         </DivFilho>
       </Form>
     </Div>
