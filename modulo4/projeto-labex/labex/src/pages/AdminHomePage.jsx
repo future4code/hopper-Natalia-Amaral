@@ -103,15 +103,15 @@ const DivFilho = styled.div`
 const Header = styled.header`
   display: flex;
   position: absolute;
-  padding-bottom: 600px;
+  padding-bottom: 800px;
   padding-left: 40px;
   flex-direction: column;
   align-items: center;
   color: white;
 
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    padding-right: 11px;
-    margin-top: -15px;
+    padding-bottom: 600px;
+    padding-top: 5px;
 }
 `;
 
