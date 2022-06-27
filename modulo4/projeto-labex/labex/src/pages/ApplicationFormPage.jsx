@@ -36,6 +36,11 @@ const Form = styled.form`
     border-color: white;
     border-radius: 1em;
     border: 1px solid;
+
+    
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 96vw
+}
   }
 
   select{
@@ -47,7 +52,12 @@ const Form = styled.form`
     border-color: white;
     border-radius: 1em;
     border: 1px solid;
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 96vw
+}
   }
+
 `;
 
 const DivFilho = styled.div`  
@@ -76,6 +86,10 @@ const DivFilho = styled.div`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    height: 8vh;
+}
   }
 `;
 

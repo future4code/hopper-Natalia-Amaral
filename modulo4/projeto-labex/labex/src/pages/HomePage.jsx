@@ -9,10 +9,10 @@ const Div = styled.div`
   align-items: center;
   justify-items:center;
   justify-content: center;
-  /* flex-direction:column; */
   background-image:url(https://cdn.pixabay.com/photo/2020/03/26/02/01/astronaut-4968983_960_720.jpg);
   background-size: cover;
   height: 100vh;
+  
 `;
 
 const DivFilho = styled.div`  
@@ -41,7 +41,13 @@ const DivFilho = styled.div`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    height: 8vh;
+}
   }
+
+  
 `;
 
 const Header = styled.header`

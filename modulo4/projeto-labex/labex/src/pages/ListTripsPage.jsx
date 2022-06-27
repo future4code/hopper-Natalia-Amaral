@@ -35,7 +35,13 @@ const Header = styled.header`
   height: 35vh;
   padding-right: 10px;
   padding-bottom: 10px;
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    height: 50vh;
+    width: 90vw;
+}
   }
+
 `;
 
 const DivList = styled.div`
@@ -74,6 +80,10 @@ const DivFilho = styled.div`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    height: 8vh;
+}
   }
 `;
 

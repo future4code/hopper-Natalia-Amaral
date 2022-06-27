@@ -40,6 +40,10 @@ const Form = styled.form`
     border-color: white;
     border-radius: 5em;
     border: 1px solid;
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 96vw
+}
   }
 `;
 

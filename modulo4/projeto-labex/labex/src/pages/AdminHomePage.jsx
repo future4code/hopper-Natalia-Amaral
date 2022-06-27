@@ -15,6 +15,7 @@ const DivList = styled.div`
   overflow-y: scroll;
   width: 50vw;
   border:solid 1px white;
+  height: 60vh;
 
   button{
   height: 4vh;
@@ -38,7 +39,17 @@ const DivList = styled.div`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 5vw
+}
   }
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 90vw;
+    margin-top: 45px;
+    margin-bottom: -45px;
+}
 `;
 
 const Div = styled.div`
@@ -80,6 +91,12 @@ const DivFilho = styled.div`
     :hover {
      box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
     }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 50vw;
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
   }
 `;
 
