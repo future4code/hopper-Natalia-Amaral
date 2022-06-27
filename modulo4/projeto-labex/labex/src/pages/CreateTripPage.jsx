@@ -44,7 +44,8 @@ const Form = styled.form`
     border: 1px solid;
 
     @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    width: 96vw
+    width: 96vw;
+    
 }
   }
 
@@ -57,7 +58,7 @@ const Form = styled.form`
     border: 1px solid;
 
     @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    width: 96vw
+    width: 96vw;
 }
   }
 `;
@@ -92,6 +93,7 @@ const DivFilho = styled.div`
 
     @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
     height: 8vh;
+    width: 85px;
     padding-left: 8px ;
 }
   }

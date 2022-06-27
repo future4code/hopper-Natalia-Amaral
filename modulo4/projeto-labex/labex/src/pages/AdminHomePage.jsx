@@ -108,6 +108,11 @@ const Header = styled.header`
   flex-direction: column;
   align-items: center;
   color: white;
+
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    padding-right: 11px;
+    margin-top: -15px;
+}
 `;
 
 

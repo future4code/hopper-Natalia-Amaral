@@ -83,6 +83,7 @@ const DivFilho = styled.div`
 
     @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
     height: 8vh;
+    margin-top: 100px;
 }
   }
 `;

@@ -49,6 +49,10 @@ const Div = styled.div`
 
   h3{
     text-align: center;
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    margin-top: -40px;
+}
   }
 
   @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
