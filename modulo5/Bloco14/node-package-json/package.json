@@ -1,0 +1,15 @@
+{
+  "name": "package-json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "calculadora": "clear && node index.js 30 3 10 2",
+    "novaTarefa": "clear && node index.js `${Tarefa adicionada com sucesso!}`"
+  },
+  "keywords": [],
+  "author": "nataliaheloisa",
+  "license": "ISC"
+}
