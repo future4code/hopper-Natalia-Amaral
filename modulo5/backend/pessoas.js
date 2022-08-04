@@ -1,0 +1,1 @@
+export const pessoas = ['José', 'Maria', 'Francisco', 'João']
