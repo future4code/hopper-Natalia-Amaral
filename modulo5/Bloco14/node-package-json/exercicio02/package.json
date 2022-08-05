@@ -1,0 +1,14 @@
+{
+  "name": "exercicio02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "calculadora": "clear && node index.js 30 3"
+  },
+  "keywords": [],
+  "author": "nataliaheloisa",
+  "license": "ISC"
+}
