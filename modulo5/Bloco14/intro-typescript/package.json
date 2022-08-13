@@ -1,0 +1,17 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "clear && tsc && node ./build/checaRg.js 2022 1995 2011",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "nataliaheloisa",
+  "license": "ISC"
+}
