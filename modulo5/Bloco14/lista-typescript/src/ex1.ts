@@ -1,6 +1,5 @@
-function dados (){
-    const nome = process.argv[2]
-    const dia = Number(process.argv[3])
-    const mes = Number(process.argv[4])
-    const ano = Number(process.argv[5])  
+function recebeString (nome:string, nascimento:string){
+    const data= nascimento.split("/")
+    return console.log(` Olá me chamo ${nome}, nasci no dia ${data[0]}, no mês ${data[1]} e no ano de ${data[2]}`)
 }
+recebeString("Natália","23/12/1995")
