@@ -1,4 +1,5 @@
 function recebeVariavel(variavel:any){
-    return typeof variavel
+    const type = typeof variavel
+    return (`${type}`)
 }
 console.log(recebeVariavel("Quero ser juninha!"))

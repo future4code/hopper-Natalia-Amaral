@@ -4,6 +4,7 @@ type filme ={
     genero: GENERO,
     pontuacao?: number
     }
+    
     enum GENERO{
         ACAO="ação",
         DRAMA="drama",
